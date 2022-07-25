@@ -66,7 +66,7 @@ def getIPs():
                 deleteEntries("A")
     if ipv6_enabled:
         try:
-            aaaa = requests.get("https://[2606:4700:4700::1111]/cdn-cgi/trace").text.split("\n")
+            aaaa = requests.get("https://www.cloudflare.com/cdn-cgi/trace").text.split("\n")
             aaaa.pop()
             aaaa = dict(s.split("=") for s in aaaa)["ip"]
         except Exception:
