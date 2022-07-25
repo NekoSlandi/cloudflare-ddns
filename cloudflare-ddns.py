@@ -54,9 +54,8 @@ def getIPs():
     global purgeUnknownRecords
     if ipv4_enabled:
         try:
-            a = requests.get("https://1.1.1.1/cdn-cgi/trace").text.split("\n")
+            a = requests.get("http://v4.ipv6-test.com/api/myip.php")
             a.pop()
-            a = dict(s.split("=") for s in a)["ip"]
         except Exception:
             global shown_ipv4_warning
             if not shown_ipv4_warning:
@@ -66,9 +65,8 @@ def getIPs():
                 deleteEntries("A")
     if ipv6_enabled:
         try:
-            aaaa = requests.get("https://www.cloudflare.com/cdn-cgi/trace").text.split("\n")
+            aaaa = requests.get("http://v6.ipv6-test.com/api/myip.php")
             aaaa.pop()
-            aaaa = dict(s.split("=") for s in aaaa)["ip"]
         except Exception:
             global shown_ipv6_warning
             if not shown_ipv6_warning:
