@@ -54,8 +54,8 @@ def getIPs():
     global purgeUnknownRecords
     if ipv4_enabled:
         try:
-            a = requests.get("http://v4.ipv6-test.com/api/myip.php")
-            a.pop()
+            a = requests.get("https://api.ipify.org")          
+            a = a.text
         except Exception:
             global shown_ipv4_warning
             if not shown_ipv4_warning:
@@ -65,8 +65,18 @@ def getIPs():
                 deleteEntries("A")
     if ipv6_enabled:
         try:
-            aaaa = requests.get("http://v6.ipv6-test.com/api/myip.php")
-            aaaa.pop()
+            #Weird workaround ipv6 not getting returned to Container (only works with active ipv4)
+            ipv4 = requests.get("https://api4.ipify.org").text.split(".")
+            count = 0
+            k = ""
+            for n in ipv4:
+                count += 1
+                s = hex(int(n))
+                s = s.replace("0x", "")
+                k += s
+                if count == 2:
+                    k += ":"
+            aaaa = "::ffff:" + k
         except Exception:
             global shown_ipv6_warning
             if not shown_ipv6_warning:
