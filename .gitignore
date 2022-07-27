@@ -59,3 +59,10 @@ ENV/
 env.bak/
 venv.bak/
 /ipv4-6.py
+.vs/cloudflare-ddns/FileContentIndex/23d6a378-71ba-4e02-bad6-3045fab81066.vsidx
+.vs/cloudflare-ddns/FileContentIndex/443117be-11bb-4fc7-87c6-32098cad8a2b.vsidx
+.vs/cloudflare-ddns/FileContentIndex/8177aa9d-99d0-44e6-8ddc-dedcca3fb1f9.vsidx
+.vs/cloudflare-ddns/FileContentIndex/cb2a1abb-a144-465b-bc46-667f47428276.vsidx
+.vs/cloudflare-ddns/v17/.suo
+.vs/slnx.sqlite
+.vs/VSWorkspaceState.json
